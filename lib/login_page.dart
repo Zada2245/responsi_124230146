@@ -13,8 +13,23 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _login() async {
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+
+    if (username.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Username dan Password tidak boleh kosong!"),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
+
+      return;
+    }
+
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('username', _usernameController.text);
+    await prefs.setString('username', username);
     await prefs.setBool('isLogin', true);
 
     if (mounted) {
