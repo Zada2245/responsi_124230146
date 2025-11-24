@@ -23,7 +23,7 @@ class MealsPage extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
-          // ... (handle error sama seperti di atas)
+
           if (!snapshot.hasData) return const Text("No Data");
 
           return GridView.builder(

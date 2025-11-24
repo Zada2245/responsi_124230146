@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'categories_page.dart';
+import '../pages/categories_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,12 +13,10 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _login() async {
-    // Simpan data ke Shared Preference
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('username', _usernameController.text);
     await prefs.setBool('isLogin', true);
 
-    // Navigasi ke Home
     if (mounted) {
       Navigator.pushReplacement(
         context,

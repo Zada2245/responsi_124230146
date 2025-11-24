@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'pages/login_page.dart';
+import 'login_page.dart';
 import 'pages/categories_page.dart';
 
 void main() {
@@ -17,8 +17,18 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Responsi Mobile',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF8D6E63),
+          primary: const Color(0xFF5D4037),
+          secondary: const Color(0xFFFF7043),
+        ),
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF5D4037),
+          foregroundColor: Colors.white,
+          centerTitle: true,
+          elevation: 4,
+        ),
       ),
       home: const CheckAuth(),
     );
